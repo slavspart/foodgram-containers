@@ -1,77 +1,140 @@
+
 # Foodgram_containers
+
+  
 
 [Описание](#описание) /
 
+  
+
 [Запуск](#запуск) /
+
+  
 
 [Документация](#документация)/
 
   
 
+  
+
 ## Описание
+
+  
 
 Проект [foodgram-containers](https://github.com/slavspart/foodgram-containers) - аггрегатор рецептов. Запуск на локальной машине в контейнерах Docker (контейнеры frontend(приложение на React), backend(приложение на Django), nginx, db(контейнер с PostgreSQL)).
 
+  
+
 Запуск на сервере при помощи workflow - [foodgram](https://github.com/slavspart/foodgram-project-react).
+
+  
 
 Пользователи могут публиковать рецепты, подписываться на публикации других пользователей, добавлять понравившиеся рецепты в список «Избранное», скачивать сводный список продуктов, необходимых для приготовления одного или нескольких выбранных блюд.
 
   
 
+  
+
 Проект состоит из фронтенда на фреймворке React, взаимодействующего с API-бэкендом, разработанном на Django.Бэкенд состоит из двух модулей:
 
+  
+
 -  **api**. Модуль для работы с рецептами.
+
+  
 
 -  **users**. Модуль для работы с пользователями.
 
   
 
+  
+
 Проект разработан:
+
+  
 
 -  **Бэкенд**:
 
+  
+
 *Cтудентом когорты 14+ курса Python разработчик + Яндекс практикума <a  href="https://github.com/slavspart"  target="_blank">Святославом Михайловым</a>.
 
+  
+
 -  **Фронтэнд**:
+
+  
 
 *Неизвестными героями :)) из <a  href="https://practicum.yandex.ru"  target="_blank">Яндекс практикума</a>
 
   
 
+  
+
 ## Запуск
-- Сделать форк репозитория
+
+- Клонируем репозиторий
+
+  
 
 ```
- git@github.com:slavspart/foodgram_containers.git
+git clone git@github.com:slavspart/foodgram_containers.git
 ```
-- Создать файл c переменными окружения
+
+- Создаем файл c переменными окружения
+
 ```
 touch infra/.env
 ```
-- Заполнить .env  по образцу из infra/.env.example
 
-- При первом запуске  
+- Заполнить .env по образцу из infra/.env.example
 
-Запустить контейнер с базой:
+  
+
+- При первом запуске:
+
+Переходим в папку с docker-compose:
+  
+``` 
+cd infra/
+```
+
+Запускаем контейнер с БД:
+
 ```
 docker-compose up -d db
 ```
-Запустить остальные контейнеры 
+
+Запускаем остальные контейнеры
+
 ```
-docker-compose  up -d
+docker-compose up -d
 ```
+
+  
 
 При первом запуске в контейнере backend запускается скрипт создания базы данных, ингредиентов, суперюзера, сбора статики.
+
 В дальнейшем можно сразу запускать все контейнеры одновременно:
+
 ```
-docker-compose  up -d
+docker-compose up -d
 ```
+
 Проект доступен по адресу:
+
 http://localhost/
 
+  
+
 Админка (логин: admin, пароль: admin):
+
 http://localhost/admin
 
+  
+
 ## Документация
+
 Документация доступна:
- <a href="http://localhost/api/docs/redoc.html" target="_blank">http://localhost/api/docs/redoc.html</a>
+
+<a  href="http://localhost/api/docs/redoc.html"  target="_blank">http://localhost/api/docs/redoc.html</a>
